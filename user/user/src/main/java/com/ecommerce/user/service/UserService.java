@@ -44,10 +44,21 @@ public class UserService {
     }
 
     private void updateUserFromRequest(User user, UserRequest userRequest) {
-        user.setFirstName(userRequest.getFirstName());
-        user.setLastName(userRequest.getLastName());
-        user.setEmail(userRequest.getEmail());
-        user.setPhone(userRequest.getPhone());
+        if (userRequest.getFirstName() != null && !userRequest.getFirstName().isBlank()) {
+            user.setFirstName(userRequest.getFirstName());
+        }
+
+        if (userRequest.getLastName() != null && !userRequest.getLastName().isBlank()) {
+            user.setLastName(userRequest.getLastName());
+        }
+
+        if (userRequest.getEmail() != null && !userRequest.getEmail().isBlank()) {
+            user.setEmail(userRequest.getEmail());
+        }
+
+        if (userRequest.getPhone() != null && !userRequest.getPhone().isBlank()) {
+            user.setPhone(userRequest.getPhone());
+        }
         if(userRequest.getAddress()!=null){
             Address address=new Address();
             address.setStreet(userRequest.getAddress().getStreet());
