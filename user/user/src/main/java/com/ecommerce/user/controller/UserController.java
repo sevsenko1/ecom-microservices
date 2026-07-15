@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Configuration management öğreniyorum ve üstüne ekleme yapacağım
+
 @RestController
 @RequiredArgsConstructor
 public class UserController {
