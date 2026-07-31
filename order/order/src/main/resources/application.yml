@@ -5,6 +5,7 @@ spring:
   config:
     import: optional:configserver:http://localhost:8888
 
+
 # H2 (gerekirse)
 # spring:
 #   h2:

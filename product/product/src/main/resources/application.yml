@@ -3,6 +3,7 @@ spring:
     name: product-service
   config:
     import: optional:configserver:http://localhost:8888
+
 # H2 (gerekirse tekrar açabilirsin)
 # spring:
 #   h2:
