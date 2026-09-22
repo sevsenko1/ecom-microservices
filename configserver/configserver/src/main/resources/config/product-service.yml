@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/product
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    username: ${DB_USER:sevko123}
+    password: ${DB_PASSWORD:sevko123}
   rabbitmq:
     host: localhost
     port: 5672
