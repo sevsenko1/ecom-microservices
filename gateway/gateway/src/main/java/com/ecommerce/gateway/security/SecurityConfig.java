@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -27,8 +26,9 @@ public class SecurityConfig {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchange -> exchange
-                        .pathMatchers("/api/products/**").hasRole("PRODUCT")
-                        .pathMatchers("/api/orders/**").hasRole("ORDER")
+
+                        .pathMatchers("/api/products/**").hasAnyRole("PRODUCT", "USER")
+                        .pathMatchers("/api/orders/**").hasAnyRole("ORDER", "USER")
                         .pathMatchers("/api/users/**").hasRole("USER")
                         .anyExchange().authenticated())
                 .oauth2ResourceServer(oauth2 ->
